@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Advice</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Random Advice</h1>
+  <button id="getAdviceBtn">Dapatkan Nasihat</button>
+  <div id="adviceContainer"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('#getAdviceBtn').click(function() {
+        $.getJSON('https://api.adviceslip.com/advice', function(data) {
+          var advice = data.slip.advice;
+          $('#adviceContainer').text(advice);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
